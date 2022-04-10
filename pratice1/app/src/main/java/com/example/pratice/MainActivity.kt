@@ -13,10 +13,7 @@ class MainActivity : AppCompatActivity() {
         //val btn1 : Button = findViewById(R.id.button1); // 버튼 객체를 불러옴
         val btn2 = findViewById<Button>(R.id.button1) // 제네릭 타입을 사용
 
-        val invisible = findViewById<Button>(R.id.visible_btn)
-        invisible.setOnClickListener {
-            invisible.visibility = View.VISIBLE
-        }
+
 
     }
 }
