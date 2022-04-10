@@ -8,6 +8,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_linear)
         //setContentView(R.layout.activity_relative)
-        setContentView(R.layout.activity_grid)
+        //setContentView(R.layout.activity_grid)
+        setContentView(R.layout.activity_constraint)
     }
 }
