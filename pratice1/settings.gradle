@@ -16,3 +16,4 @@ rootProject.name = "pratice"
 include ':app'
 include ':ch06_kakaopwchecking'
 include ':ch07'
+include ':ch08'

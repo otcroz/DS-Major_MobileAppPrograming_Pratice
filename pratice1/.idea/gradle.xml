@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/ch06_kakaopwchecking" />
             <option value="$PROJECT_DIR$/ch07" />
+            <option value="$PROJECT_DIR$/ch08" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
