@@ -17,28 +17,28 @@
         android:padding="20dp"/>
 
     <Button
+        android:id="@+id/test_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="button2"
+        android:text="testButton"
         android:backgroundTint="#ff0000"
         android:layout_margin="30dp"/>
 
     <!--visible test-->
     <LinearLayout
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
+            android:id="@+id/visible_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="button3" />
+            android:text="visible" />
         <Button
+            android:id="@+id/invisible_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="button4" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="button4" />
+            android:text="invisible" />
     </LinearLayout>
     <!--TextView-->
     <TextView
