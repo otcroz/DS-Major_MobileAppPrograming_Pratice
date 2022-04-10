@@ -9,6 +9,7 @@ class MainActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_linear)
         //setContentView(R.layout.activity_relative)
         //setContentView(R.layout.activity_grid)
-        setContentView(R.layout.activity_constraint)
+        //setContentView(R.layout.activity_constraint)
+        setContentView(R.layout.keypad_pratice)
     }
 }
