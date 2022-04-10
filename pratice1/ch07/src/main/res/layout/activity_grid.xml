@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:columnCount="3">
+    <Button android:text="A"
+        android:backgroundTint="#FFCCCC" />
+    <Button android:text="Hello world!"
+        android:backgroundTint="#FFCCAA"/>
+    <Button android:text="A"
+        android:backgroundTint="#FFCCFF"/>
+    <Button android:text="A"
+        android:backgroundTint="#FFEECC"/>
+    <Button android:text="A"
+        android:layout_gravity="fill_horizontal"
+        android:backgroundTint="#EEBBCC"/>
+    <Button android:text="B"
+        android:backgroundTint="#EEBBCC"/>
+
+    <!--열 병합하기-->
+    <Button android:text="Hello world!"
+        android:layout_columnSpan="2"
+        android:layout_rowSpan="2"
+        android:layout_gravity="fill"
+        android:backgroundTint="#FFCCAA"/>
+    <Button android:text="Hello world!"
+        android:backgroundTint="#FFCCAA"/>
+    <Button android:text="Hello world!"
+    android:backgroundTint="#FFCCAA"/>
+    <Button android:text="Hello world!"
+        android:backgroundTint="#FFCCAA"/>
+    <Button android:text="Hello world!"
+        android:backgroundTint="#FFCCAA"/>
+
+
+</GridLayout>
