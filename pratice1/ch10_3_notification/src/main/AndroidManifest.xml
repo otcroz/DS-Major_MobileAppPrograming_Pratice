@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ch10_2">
-    <!--퍼미션 작성하기-->
-    <!--permission: 기능을 보호하려는 앱에 대한 퍼미션 작성 -->
-    <!--uses-permission: 퍼미션으로 보호된 기능을 사용할 때 작성 -->
-    <!--permission 태그 속성: label, description, protectionlevel 속성-->
-    <uses-permission android:name="android.permission.VIBRATE" />
+    package="com.example.ch10_3_notification">
 
     <application
         android:allowBackup="true"

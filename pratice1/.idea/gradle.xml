@@ -18,6 +18,7 @@
             <option value="$PROJECT_DIR$/ch09" />
             <option value="$PROJECT_DIR$/ch10" />
             <option value="$PROJECT_DIR$/ch10_2" />
+            <option value="$PROJECT_DIR$/ch10_3_notification" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
