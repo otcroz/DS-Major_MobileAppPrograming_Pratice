@@ -39,7 +39,7 @@ class Fragment2 : Fragment() {
         val binding = Fragment2Binding.inflate(inflater, container, false)
         binding.tabs.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                val transaction = fragmentManager?.beginTransaction() // 프래그먼트 관리
+                val transaction = fragmentManager?.beginTransaction() // 프래그먼트 관리, 액티비티에서는 supportFragmentManager
                 when(tab?.text){
                     // 탭 선택에 따라 각각의 프레그먼트를 불러옴
                     "tab1" -> transaction?.replace(R.id.tabContent, Fragment21())

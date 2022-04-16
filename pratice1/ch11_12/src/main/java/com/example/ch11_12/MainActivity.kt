@@ -67,6 +67,20 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(binding.tab1, binding.viewpager){
                 tab, position -> tab.text = "TAB ${position+1}"
         }.attach()
+
+        //드로어 레이아웃에서의 메뉴 이벤트
+        binding.mainDrawerView.setNavigationItemSelectedListener {
+            Log.d("mobileApp", "Navigation selected...${it.title}") // it: 셀렉터가 전달받은 파라미터
+            true
+        }
+
+        // 플로팅 액션 버튼(FAB)에 대한 이벤트
+        binding.fab.setOnClickListener{
+            when(binding.fab.isExtended) { // 플로팅 버튼의 확대 여부
+                true -> binding.fab.shrink() // 버튼의 크기를 줄임
+                false -> binding.fab.extend() // 버튼의 크기를 확장
+            }
+        }
     }
 
 

@@ -61,14 +61,28 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:icon="@android:drawable/ic_input_add"
+            android:text="Extended FAB"
+            app:layout_anchor="@id/viewpager"
+            app:layout_anchorGravity="bottom|right"/>
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <!--뷰 2-->
-    <TextView
-        android:layout_width="match_parent"
+    <!--뷰 2: 숨겨진 뷰-->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/main_drawer_view"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:text="나는 drawer입니다." />
+        app:headerLayout="@layout/navigation_header"
+        app:menu="@menu/navigation_menu" />
+    <!--layout_gravity: 숨겨져 있던 뷰가 나오는 방향 설정-->
 
 </androidx.drawerlayout.widget.DrawerLayout>
     <!--layout_scrollFlags: exitUntilCollapsed, enterAlwaysCollapsed, enterAlways-->
