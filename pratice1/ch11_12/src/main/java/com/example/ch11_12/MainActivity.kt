@@ -6,12 +6,17 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.SearchView
+import com.example.ch11_12.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater)}
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        
+        setContentView(binding.root)
+
+        // 툴바를 액션바 형태로 적용하기
+        setSupportActionBar(binding.toolbar)
     }
 
 

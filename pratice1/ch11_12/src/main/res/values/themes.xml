@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <!--AppCompat는 Fragment와 충돌 가능성 있음, 다른 패키지의 NoActionBar 사용하기-->
-    <style name="Theme.Pratice" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Pratice" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#ee4433</item> <!--액션바 색상 설정-->
         <item name="colorPrimaryVariant">@color/purple_700</item>
