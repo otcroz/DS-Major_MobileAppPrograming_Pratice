@@ -16,4 +16,14 @@
         android:title="happy"
         android:icon="@android:drawable/ic_menu_add"
         app:showAsAction="never"/>
+
+    <!--검색 메뉴-->
+    <item
+        android:id="@+id/menu_search"
+        android:title="검색"
+        android:icon="@android:drawable/ic_menu_search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="always"/>
+    <!--actionViewClass: 액션 뷰를 메뉴에 적용할 때 사용-->
+
 </menu>
