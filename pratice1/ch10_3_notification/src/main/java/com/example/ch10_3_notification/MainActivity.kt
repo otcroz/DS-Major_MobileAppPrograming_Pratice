@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
             val builder : NotificationCompat.Builder
 
-            //호환성 처리
+            //호환성 처리: 26 버전이 넘을 때 채널 생성
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
                 val ch_id = "one-channel"
                 // NotificationChannel 생성: NotificationChannel(채널 식별자, 채널 이름, 중요도)
@@ -56,9 +56,11 @@ class MainActivity : AppCompatActivity() {
 
                 channel.setSound(uri, audio_attr) // 알림음 재생
 
+                // 채널을 NotificationManager 객체에 등록
                 manager.createNotificationChannel(channel)
+                // 채널을 이용하여 빌더 생성
                 builder = NotificationCompat.Builder(this,ch_id) // 채널의 식별값 지정 => 앱의 알림을 채널로 구분
-            } else{
+            } else{ // 버전 26이 넘지 않을 때
                 builder = NotificationCompat.Builder(this)
             }
 
@@ -73,17 +75,17 @@ class MainActivity : AppCompatActivity() {
 
             builder.setStyle(buildStyle) // 비트맵(리소스) 관련 스타일 적용
 
-            // 3. 알림 터치 이벤트
-            //인텐트 생성: 알림 터치 시 화면 이동에 대한 인텐트
+            // 3. 액션 설정
+            //인텐트 생성 1
             val replyIntent = Intent(this, ReplyReceiver::class.java)
 
-            // 인텐트 설정: 원격 답장에 대한 인텐트
+            // 인텐트 설정 2
             // getBroadcast(context, 적절한 숫자, 등록한 인텐트, 내용 변경 여부)
             val replyPendingIntent = PendingIntent.getBroadcast(this, 30, replyIntent, PendingIntent.FLAG_MUTABLE) // 해당 내용 변경 여부: FLAG_MUTABLE로 설정해야한다.
             builder.setContentIntent(replyPendingIntent) //인텐트 등록,
             // 위의 코드를 주석처리하면 알림을 터치하는 것에 대한 인텐트 처리가 발생하지 X
 
-            // 원격으로 입력에 대한 액션
+            // 원격으로 입력에 대한 액션: 인텐트
             val remoteInput = RemoteInput.Builder("key_text_reply").run{ // RemoteInput은 안드로이드와 안드로이드X에서 제공한다.
                 setLabel("답장")
                 build()
