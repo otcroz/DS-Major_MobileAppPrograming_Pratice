@@ -1,10 +1,15 @@
 package com.example.ch11_12
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.ch11_12.databinding.Fragment1Binding
+import com.example.ch11_12.databinding.ItemRecyclerviewBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -16,6 +21,24 @@ private const val ARG_PARAM2 = "param2"
  * Use the [Fragment1.newInstance] factory method to
  * create an instance of this fragment.
  */
+
+class MyViewHolder(val binding: ItemRecyclerviewBinding) : RecyclerView.ViewHolder(binding.root)
+class MyAdapter(val datas:MutableList<String>) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+    override fun getItemCount(): Int { // 아이템 개수 리턴
+        return datas.size
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder { // 뷰 홀더 준비
+        // layoutInflator는 Activity에서만 적용 => Fragment에서는 함수를 통해 만들어준다: LayoutInflater.from(parent.context)
+        return MyViewHolder(ItemRecyclerviewBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) { // 뷰 홀더 뷰에 데이터 출력: 바인딩
+        val binding = (holder as MyViewHolder).binding
+        binding.itemTv.text = datas[position]
+    }
+}
+
 class Fragment1 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -33,8 +56,20 @@ class Fragment1 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_1, container, false)
+        // 리사이클러 뷰에 넣을 data String 생성
+        val datas = mutableListOf<String>()
+        for(i in 1..9){
+            datas.add("item $i")
+        }
+
+        //리사이클러 뷰 적용하기
+        val binding = Fragment1Binding.inflate(inflater, container, false)
+        val layoutManager = LinearLayoutManager(activity)
+        binding.recyclerView.layoutManager = layoutManager // 기본: vertical로 설정되어 있음
+        binding.recyclerView.adapter = MyAdapter(datas)
+        //binding.recyclerView.addItemDecoration(MyDecoration(activity as Context)) // 데코레이션
+
+        return binding.root
     }
 
     companion object {

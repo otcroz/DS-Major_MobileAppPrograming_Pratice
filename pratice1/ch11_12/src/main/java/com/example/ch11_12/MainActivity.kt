@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             transaction.add(R.id.fragmentView, fragment) // activity_main > fragmentView 자리에 fragment 추가
             transaction.commit()
         // transaction.addToBackStack()
+
     }
 
 
