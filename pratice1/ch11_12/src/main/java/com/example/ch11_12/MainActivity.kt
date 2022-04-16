@@ -95,4 +95,21 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    // 토글 이벤트 처리
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // 토글에 대한 확인: 아이템 선택에 대한 확인
+        if (toggle.onOptionsItemSelected(item)) return true
+
+        when(item.itemId){
+            R.id.menu1 -> {
+                //binding.tv1.setTextColor(Color.BLUE)
+                true //리턴값에 대한 값을 가져야 한다. -> true로 설정
+            }
+            R.id.menu2 -> {
+                true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }
