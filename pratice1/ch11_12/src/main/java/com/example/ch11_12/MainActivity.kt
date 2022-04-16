@@ -6,6 +6,8 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.example.ch11_12.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +19,15 @@ class MainActivity : AppCompatActivity() {
 
         // 툴바를 액션바 형태로 적용하기
         setSupportActionBar(binding.toolbar)
+
+        // fragment 적용
+        val fragmentManager : FragmentManager = supportFragmentManager
+        val transaction : FragmentTransaction = fragmentManager.beginTransaction()
+            // 1) fragment 추가
+            var fragment = Fragment1()
+            transaction.add(R.id.fragmentView, fragment) // activity_main > fragmentView 자리에 fragment 추가
+            transaction.commit()
+        // transaction.addToBackStack()
     }
 
 

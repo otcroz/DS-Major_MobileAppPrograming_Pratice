@@ -13,6 +13,13 @@
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.Toolbar.Primary" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_200"
+        android:text="hello!"
+        android:textSize="30dp"/>
+
     <!--프레그먼트가 들어갈 자리-->
     <LinearLayout
         android:id="@+id/fragmentView"
