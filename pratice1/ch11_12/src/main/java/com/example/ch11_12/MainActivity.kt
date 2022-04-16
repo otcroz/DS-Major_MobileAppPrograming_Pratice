@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.ch11_12.databinding.ActivityMainBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
     class MyFragmentAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity){
@@ -61,6 +62,11 @@ class MainActivity : AppCompatActivity() {
         toggle = ActionBarDrawerToggle(this, binding.drawer, R.string.drawer_open, R.string.drawer_close) // 액티비티, xml, string
         supportActionBar?.setDisplayHomeAsUpEnabled(true) // 액션바 추가
         toggle.syncState() // 토글 동기화
+
+        // 탭 레이아웃: TabLayoutMediator를 사용하여 뷰페이저와 탭바 연동하기
+        TabLayoutMediator(binding.tab1, binding.viewpager){
+                tab, position -> tab.text = "TAB ${position+1}"
+        }.attach()
     }
 
 
