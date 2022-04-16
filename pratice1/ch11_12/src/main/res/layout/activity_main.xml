@@ -13,5 +13,11 @@
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.Toolbar.Primary" />
 
+    <!--프레그먼트가 들어갈 자리-->
+    <LinearLayout
+        android:id="@+id/fragmentView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" />
 
 </LinearLayout>
