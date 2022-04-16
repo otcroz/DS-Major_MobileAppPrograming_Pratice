@@ -5,13 +5,37 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
 import com.example.ch11_12.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    class MyFragmentAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity){
+        // 프레그먼트들의 대한 배열
+        val fragments: List<Fragment>
+        init {
+            fragments = listOf(Fragment1(), Fragment2(), Fragment3()) // 3개의 프레그먼트 등록
+        }
+
+        override fun getItemCount(): Int { // 등록된 프레그먼트의 개수
+            //TODO("Not yet implemented")
+            return fragments.size
+        }
+
+        override fun createFragment(position: Int): Fragment { // 전달받은(position 번째에 해당하는) 프레그먼트 리턴
+            //TODO("Not yet implemented")
+            return fragments[position]
+        }
+    }
+
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater)}
+    lateinit var toggle : ActionBarDrawerToggle // 토글 선언
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,11 +48,19 @@ class MainActivity : AppCompatActivity() {
         val fragmentManager : FragmentManager = supportFragmentManager
         val transaction : FragmentTransaction = fragmentManager.beginTransaction()
             // 1) fragment 추가
-            var fragment = Fragment1()
-            transaction.add(R.id.fragmentView, fragment) // activity_main > fragmentView 자리에 fragment 추가
-            transaction.commit()
+            //var fragment = Fragment1()
+            //transaction.add(R.id.fragmentView, fragment) // activity_main > fragmentView 자리에 fragment 추가
+            //transaction.commit()
         // transaction.addToBackStack()
 
+        // ViewPager2 추가
+        binding.viewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL //가로 방향으로 프레그먼트 넘기기
+        binding.viewpager.adapter = MyFragmentAdapter(this)
+
+        // 토글 적용하기
+        toggle = ActionBarDrawerToggle(this, binding.drawer, R.string.drawer_open, R.string.drawer_close) // 액티비티, xml, string
+        supportActionBar?.setDisplayHomeAsUpEnabled(true) // 액션바 추가
+        toggle.syncState() // 토글 동기화
     }
 
 
@@ -62,6 +94,5 @@ class MainActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
 
     }
-
 
 }
