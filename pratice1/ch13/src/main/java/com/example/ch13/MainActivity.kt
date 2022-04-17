@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         // 인텐트 생성하기
         binding.fab.setOnClickListener {
             val intent = Intent(this, AddActivity::class.java)
+            intent.putExtra("data1", "안녕하세요!")
+            intent.putExtra("data2", " 저는 유수연입니다~!")
             startActivity(intent)
         }
     }
