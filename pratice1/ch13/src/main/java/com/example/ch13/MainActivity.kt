@@ -30,10 +30,11 @@ class MainActivity : AppCompatActivity() {
 //            DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
 //        )
 
+        // ActivityResultLauncher 사용하기: intent 사후처리
         val requesteLauncher : ActivityResultLauncher<Intent> = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult())
         {
-            val resultData = it.data?.getStringExtra("data3")
+            val resultData = it.data?.getStringExtra("save_todo")
             Log.d("test_intent", "ActivityResultLauncher: $resultData")
         }
 

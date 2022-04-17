@@ -19,6 +19,7 @@
         android:textSize="20dp"/>
 
     <EditText
+        android:id="@+id/input_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="오늘 할 일을 입력하세요."

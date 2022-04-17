@@ -9,10 +9,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.ch13.databinding.ActivityAddBinding
 
 class AddActivity : AppCompatActivity() {
+    lateinit var binding : ActivityAddBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityAddBinding.inflate(layoutInflater)
+        binding = ActivityAddBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val data1 = intent.getStringExtra("data1")
@@ -44,6 +45,14 @@ class AddActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return super.onOptionsItemSelected(item)
+        if(item.itemId == R.id.menu_add_save){ // 아이템 "저장" 버튼을 눌렀을 때
+            intent.putExtra("save_todo", binding.inputEdit.text.toString())
+            setResult(RESULT_OK, intent)
+            finish()
+
+            return true
+        }
+
+        return false
     }
 }
