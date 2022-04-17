@@ -26,6 +26,10 @@ class MainActivity : AppCompatActivity() {
 //            DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
 //        )
 
-
+        // 인텐트 생성하기
+        binding.fab.setOnClickListener {
+            val intent = Intent(this, AddActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
