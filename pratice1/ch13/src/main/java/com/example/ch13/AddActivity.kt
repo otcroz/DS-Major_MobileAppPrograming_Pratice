@@ -1,5 +1,6 @@
 package com.example.ch13
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +17,13 @@ class AddActivity : AppCompatActivity() {
         val data2 = intent.getStringExtra("data2")
 
         Log.d("test_intent", "$data1 $data2")
+
+        // 암시적 인텐트
+        binding.btn1.setOnClickListener {
+            val intent = Intent()
+            intent.action = "ACTION_EDIT"
+            startActivity(intent)
+        }
 
         // MainActivity로 되돌아가기
         /*binding.btn2.setOnClickListener {
