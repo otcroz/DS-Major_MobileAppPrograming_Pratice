@@ -25,8 +25,15 @@
         android:inputType="text" />
 
     <Button
+        android:id="@+id/btn1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="명시적 인텐트" />
+        android:text="암시적 인텐트" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MainActivity로 되돌아가기" />
 
 </LinearLayout>

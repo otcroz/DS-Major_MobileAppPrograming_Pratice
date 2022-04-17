@@ -3,6 +3,7 @@ package com.example.ch13
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,7 +32,16 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AddActivity::class.java)
             intent.putExtra("data1", "안녕하세요!")
             intent.putExtra("data2", " 저는 유수연입니다~!")
-            startActivity(intent)
+            //startActivity(intent)
+            startActivityForResult(intent, 10)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 10 && resultCode == RESULT_OK){
+            val result = data?.getStringExtra("data3")
+            Log.d("test_intent", "$result") // 이거 왜 안되지
         }
     }
 }
