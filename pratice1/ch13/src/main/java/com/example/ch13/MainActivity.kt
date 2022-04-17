@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         //리사이클러 뷰 생성
         binding.mainRecyclerview.layoutManager = LinearLayoutManager(this)
         adapter = MyAdapter(datas)

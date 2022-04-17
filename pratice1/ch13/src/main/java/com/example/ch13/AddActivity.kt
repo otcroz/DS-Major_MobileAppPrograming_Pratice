@@ -3,6 +3,8 @@ package com.example.ch13
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ch13.databinding.ActivityAddBinding
 
@@ -33,5 +35,15 @@ class AddActivity : AppCompatActivity() {
             finish()
         }*/
 
+    }
+
+    // 메뉴 바 생성
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_add, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return super.onOptionsItemSelected(item)
     }
 }
