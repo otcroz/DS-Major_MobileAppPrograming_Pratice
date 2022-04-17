@@ -18,12 +18,12 @@ class AddActivity : AppCompatActivity() {
         Log.d("test_intent", "$data1 $data2")
 
         // MainActivity로 되돌아가기
-        binding.btn2.setOnClickListener {
+        /*binding.btn2.setOnClickListener {
             intent.putExtra("test3", "Yoosooyeon")
             Log.d("test_intent", "$intent")
             setResult(RESULT_OK, intent)
             finish()
-        }
+        }*/
 
     }
 }
